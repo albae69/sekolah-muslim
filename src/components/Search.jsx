@@ -1,13 +1,13 @@
 import React from "react"
+import {Form} from "../components/"
 
 const Search = () => {
 	return (
-		<div className="text-center w-9/12 mx-auto my-20">
+		<div className="text-center mx-auto my-20">
 			<span className="text-white font-Nunito font-semibold tracking-wide text-xl">
-				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta maiores
-				excepturi accusamus nam est perspiciatis tenetur veritaest perspiciatis
-				tenetur verita est perspiciatis tenetur verita
+				Cari Sekolah Terbaik Untuk Putra dan Putri Anda di SekolahMuslim.com
 			</span>
+			<Form />
 		</div>
 	)
 }

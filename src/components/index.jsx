@@ -5,6 +5,7 @@ import JenjangSekolah from "./JenjangSekolah"
 import SekolahPilihan from "./SekolahPilihan"
 import SekolahTerbaru from "./SekolahTerbaru"
 import TambahSekolah from "./TambahSekolah"
+import Form from "./Form"
 
 export {
 	Header,
@@ -13,5 +14,6 @@ export {
 	JenjangSekolah,
 	SekolahPilihan,
 	SekolahTerbaru,
-	TambahSekolah
+	TambahSekolah,
+	Form
 }

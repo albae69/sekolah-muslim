@@ -16,14 +16,14 @@ const Header = () => {
 		>
 			<nav className="flex items-center justify-between flex-wrap p-6 font-Nunito">
 				<div className="flex items-center flex-shrink-0 text-white mr-6">
-					<span className="md:mx-10 md:my-10 font-semibold text-xl text-center lg:text-4xl tracking-wide cursor-pointer">
+					<span className="md:mx-10 md:my-5 font-semibold text-xl text-center lg:text-4xl tracking-wide cursor-pointer">
 						Sekolah Muslim
 					</span>
 				</div>
 				<div className="block lg:hidden">
 					<button
 						onClick={handleClick}
-						className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white"
+						className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white btn mx-0"
 					>
 						<svg
 							className="fill-current h-3 w-3"
@@ -38,7 +38,7 @@ const Header = () => {
 				<div
 					className={`w-full  ${
 						open ? "block" : "hidden"
-					}  lg:block lg:flex justify-between lg:items-center lg:w-auto tracking-wider`}
+					}  lg:block lg:flex justify-between lg:items-center lg:w-auto tracking-wider md:my-6 md:ml-10 mr-10 md:mb-4 mb-0`}
 				>
 					<div className="lg:flex-grow">
 						<a
@@ -49,14 +49,14 @@ const Header = () => {
 						</a>
 					</div>
 					<div>
-						<button className="inline-block px-4 py-2 leading-none border rounded font-bold tracking-wide text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 focus:outline-none text-sm">
+						<button className="inline-block px-4 py-2 leading-none border rounded font-bold tracking-wide text-white border-white btn hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 text-sm">
 							Tambah Sekolah
 						</button>
 					</div>
 				</div>
 			</nav>
-			<hr className="mx-auto w-11/12 my-0 md:-my-8" />
-			<Search />
+			<hr className="mx-auto w-11/12 md:-my-6 my-0 opacity-50" />
+			{/* <Search /> */}
 		</div>
 	)
 }

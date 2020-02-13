@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn:hover {
+	@apply border-transparent;
+}
+
+.btn:focus {
+	@apply outline-none;
+}
