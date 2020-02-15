@@ -3,8 +3,8 @@ import circle from "../assets/img/circle.svg"
 
 const JenjangSekolah = () => {
 	return (
-		<main className="font-Nunito w-full sm:h-full w-full">
-			<span className="text-white text-2xl font-bold tracking-widest">
+		<main className="font-Nunito h-full w-full">
+			<span className="text-white text-2xl font-bold tracking-widest mb-16">
 				Jenjang Sekolah
 			</span>
 			<div className="flex flex-wrap justify-between my-10 mx-16">

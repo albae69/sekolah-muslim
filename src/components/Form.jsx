@@ -75,7 +75,7 @@ const Form = () => {
 				<div>
 					<button
 						type="submit"
-						className="lg:my-10 bg-blue hover:bg-blue-300 border rounded-xl btn text-white px-5 py-1"
+						className="sm:my-10 bg-blue hover:bg-blue-300 border rounded-xl btn text-white px-5 py-1"
 					>
 						Cari
 					</button>
