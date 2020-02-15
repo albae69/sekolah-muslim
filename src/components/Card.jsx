@@ -1,30 +1,25 @@
 import React from "react"
-import quran from "../assets/img/quran.jpg"
 
-const Card = () => {
+const Card = ({style, desc, title, tag1, tag2, tag3, img}) => {
 	return (
 		<div
-			style={{height: "360px", width: "300px"}}
+			style={style}
 			className="font-Nunito mb-5 rounded overflow-hidden shadow-lg bg-gray-100"
 		>
-			<img src={quran} alt="" />
+			<img src={img} alt="" />
 			<div className="px-6 py-1">
-				<p className="text-gray-600 font-bold text-2xl">Holy Quran</p>
-				<p className="text-gray-700 text-sm">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
-					quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
-					nihil.
-				</p>
+				<p className="text-gray-600 font-bold text-2xl">{title}</p>
+				<p className="text-gray-700 text-sm">{desc}</p>
 			</div>
 			<div className="px-6 py-4">
 				<span className="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-5">
-					#quran
+					{tag1}
 				</span>
 				<span className="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-5">
-					#recite
+					{tag2}
 				</span>
 				<span className="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mb-5">
-					#quran
+					{tag3}
 				</span>
 			</div>
 		</div>
