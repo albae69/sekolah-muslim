@@ -1,10 +1,11 @@
 import React from "react"
-import {Header} from "../components/"
+import {Header, SekolahPilihan} from "../components/"
 
 const Home = () => {
 	return (
 		<div className="w-full bg-blue-700">
 			<Header />
+			<SekolahPilihan />
 		</div>
 	)
 }
