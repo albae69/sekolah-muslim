@@ -1,30 +1,86 @@
-import React from "react"
+import React, {useState} from "react"
 
 const Form = () => {
+	const initDaerah = [
+		"Nanggroe Aceh Darussalam",
+		"Sumatera Utara",
+		"Sumatera Barat",
+		"Sumatera Selatan",
+		"Kepualan Riau"
+	]
+
+	const initSekolah = [
+		{
+			"Sumatera Utara": [
+				"SMK Negeri 1 Percut Sei Tuan",
+				"SMP Negeri 43 Medan",
+				"SD Negeri 067248"
+			]
+		}
+	]
+
+	const [sekolah, setSekolah] = useState(initSekolah)
+	const [daerah, setDaerah] = useState(initDaerah)
+
+	const [input, setInput] = useState("")
+
+	const handleChange = e => {
+		const {name, value} = e.target
+		console.log({[name]: value})
+	}
+
+	const handleSubmit = e => {
+		e.preventDefault()
+	}
+
 	return (
-		<form className="font-Nunito my-20 h-auto w-auto">
-			<label
-				htmlFor="cari-sekolah"
-				className="text-white text-xl tracking-wide mx-2 absolute -my-8"
-			>
-				Cari Sekolah
-			</label>
-			<input
-				type="text"
-				name="cari-sekolah"
-				placeholder="cari sekolah.."
-				autoComplete="off"
-				className="h-8 w-64 p-4 border rounded-full focus:outline-none mr-32"
-			/>
-			<label
-				htmlFor="cari-daerah"
-				className="text-white text-xl tracking-wide mx-2 absolute -my-8"
-			>
-				Daerah Asal
-			</label>
-			<button className="border text-white p-2 rounded-full py-1 px-8 tracking-widest mx-10 focus:outline-none hover:bg-blue-400 hover:border-transparent">
-				Cari
-			</button>
+		<form
+			onSubmit={handleSubmit}
+			className="px-8 pt-6 pb-8 mb-4 flex flex-col my-2 font-Nunito"
+		>
+			<div className="lg:mx-64 md:flex mb-6">
+				<div className="md:w-1/2 px-3 mb-6 md:mb-0">
+					<label className="lg:float-left block  tracking-wider text-white text-xl font-bold mb-2">
+						Cari Sekolah
+					</label>
+					<input
+						type="text"
+						placeholder="ketik nama sekolah.."
+						className="focus:placeholder-transparent appearance-none block w-full bg-grey-lighter text-grey-darker  py-2 px-4 focus:outline-none  mb-3"
+						value={input.sekolah}
+						onChange={handleChange}
+						name="sekolah"
+						autoComplete="off"
+					/>
+				</div>
+				<div className="md:w-1/2 px-3 mb-6 md:mb-0">
+					<label className="lg:float-left block  tracking-wider text-white text-xl font-bold mb-2">
+						Daerah Asal
+					</label>
+					<input
+						placeholder="ketik nama daerah.."
+						className="appearance-none block text-gray-500 w-full bg-white  border py-2 px-4 btn  mb-3"
+						list="daerah"
+						name="daerah"
+						value={input.daerah}
+						onChange={handleChange}
+						autoComplete="off"
+					/>
+					<datalist id="daerah" className="bg-white w-full absolute">
+						{daerah.map(daerah => (
+							<option key={daerah} value={daerah} />
+						))}
+					</datalist>
+				</div>
+				<div>
+					<button
+						type="submit"
+						className="lg:my-10 bg-blue hover:bg-blue-300 border rounded-xl btn text-white px-5 py-1"
+					>
+						Cari
+					</button>
+				</div>
+			</div>
 		</form>
 	)
 }

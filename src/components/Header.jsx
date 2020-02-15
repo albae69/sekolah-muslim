@@ -1,6 +1,7 @@
 import React, {useState} from "react"
 import {Search} from "../components/"
 // import quran from "../assets/img/quran.jpg"
+import {Link} from "react-router-dom"
 
 const Header = () => {
 	const [open, setOpen] = useState(false)
@@ -9,16 +10,22 @@ const Header = () => {
 		setOpen(!open)
 	}
 
+	const toggleModal = () => {
+		alert("isi modal untuk submit data")
+	}
+
 	return (
 		<div
-			className="bg-no-repeat bg-center bg-cover  w-full sm:h-full"
+			className="bg-no-repeat bg-center bg-cover  w-full h-full"
 			// style={{background: `url(${quran})`, height: "80vh"}}
 		>
-			<nav className="flex items-center justify-between flex-wrap p-6 font-Nunito">
+			<nav className="flex items-center justify-between flex-wrap p-6 font-Nunito md:mb-5">
 				<div className="flex items-center flex-shrink-0 text-white mr-6">
-					<span className="md:mx-10 md:my-5 font-semibold text-xl text-center lg:text-4xl tracking-wide cursor-pointer">
-						Sekolah Muslim
-					</span>
+					<Link to="/">
+						<span className="md:mx-10 md:my-5 font-semibold text-xl text-center lg:text-4xl tracking-wide cursor-pointer">
+							Sekolah Muslim
+						</span>
+					</Link>
 				</div>
 				<div className="block lg:hidden">
 					<button
@@ -49,14 +56,17 @@ const Header = () => {
 						</a>
 					</div>
 					<div>
-						<button className="inline-block px-4 py-2 leading-none border rounded font-bold tracking-wide text-white border-white btn hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 text-sm">
+						<button
+							onClick={toggleModal}
+							className="inline-block px-4 py-2 leading-none border rounded font-bold tracking-wide text-white border-white btn hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 text-sm"
+						>
 							Tambah Sekolah
 						</button>
 					</div>
 				</div>
 			</nav>
 			<hr className="mx-auto w-11/12 md:-my-6 my-0 opacity-50" />
-			{/* <Search /> */}
+			<Search />
 		</div>
 	)
 }

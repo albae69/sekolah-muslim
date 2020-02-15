@@ -3,7 +3,7 @@ import {Header} from "../components/"
 
 const Home = () => {
 	return (
-		<div className="h-screen w-full bg-blue-800 relative">
+		<div className="w-full bg-blue-700">
 			<Header />
 		</div>
 	)
