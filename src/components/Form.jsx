@@ -36,7 +36,7 @@ const Form = () => {
 	return (
 		<form
 			onSubmit={handleSubmit}
-			className="px-8 pt-6 pb-8 mb-4 flex flex-col my-2 font-Nunito"
+			className=" px-8 pt-6 pb-8 mb-4 flex flex-col my-2 font-Nunito"
 		>
 			<div className="lg:mx-64 md:flex mb-6">
 				<div className="md:w-1/2 px-3 mb-6 md:mb-0">

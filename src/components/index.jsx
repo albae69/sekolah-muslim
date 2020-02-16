@@ -6,6 +6,7 @@ import SekolahPilihan from "./SekolahPilihan"
 import SekolahTerbaru from "./SekolahTerbaru"
 import TambahSekolah from "./TambahSekolah"
 import Form from "./Form"
+import Modal from "./Modal"
 
 export {
 	Header,
@@ -15,5 +16,6 @@ export {
 	SekolahPilihan,
 	SekolahTerbaru,
 	TambahSekolah,
-	Form
+	Form,
+	Modal
 }

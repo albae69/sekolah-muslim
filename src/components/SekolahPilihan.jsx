@@ -10,8 +10,7 @@ const SekolahPilihan = () => {
 			desc: "lorem ipsum sit dolor amet",
 			tag1: "#ikhwan",
 			tag2: "#akhwat",
-			tag3: "#fulldayschool",
-			img: "https://cdn2.thecatapi.com/images/366.jpg"
+			tag3: "#fulldayschool"
 		},
 		{
 			id: 2,
@@ -20,7 +19,7 @@ const SekolahPilihan = () => {
 			tag1: "#ikhwan",
 			tag2: "#akhwat",
 			tag3: "#fulldayschool",
-			img: "https://cdn2.thecatapi.com/images/366.jpg"
+			img: "https://cdn2.thecatapi.com/images/367.jpg"
 		},
 		{
 			id: 3,
@@ -28,18 +27,33 @@ const SekolahPilihan = () => {
 			desc: "lorem ipsum sit dolor amet",
 			tag1: "#ikhwan",
 			tag2: "#akhwat",
-			tag3: "#fulldayschool"
+			tag3: "#fulldayschool",
+			img: "https://cdn2.thecatapi.com/images/368.jpg"
+		},
+		{
+			id: 4,
+			title: "d",
+			desc: "lorem ipsum sit dolor amet",
+			tag1: "#ikhwan",
+			tag2: "#akhwat",
+			tag3: "#fulldayschool",
+			img: "https://cdn2.thecatapi.com/images/468.jpg"
 		}
 	]
 
 	const [state] = useState(initState)
 
 	return (
-		<div className="h-full w-full font-Nunito">
+		<div
+			data-aos="fade-up"
+			data-aos-duration="2000"
+			className="h-full w-full font-Nunito "
+			style={{overflow: "hidden"}}
+		>
 			<p className="text-white text-2xl font-bold tracking-widest mb-16 flex justify-center">
 				Sekolah Pilihan
 			</p>
-			<div className="container flex justify-around justify-center flex-wrap">
+			<div className="container flex justify-around  justify-center flex-wrap">
 				{state.map(state => (
 					<Card
 						key={state.id}
