@@ -6,7 +6,7 @@ const Home = () => {
 		<div className="w-full bg-blue-700">
 			<Header />
 			<SekolahPilihan />
-			<SekolahTerbaru />
+			{/* <SekolahTerbaru /> */}
 		</div>
 	)
 }
