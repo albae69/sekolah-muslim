@@ -1,29 +1,11 @@
-import React, {useState} from "react"
+import React, {useContext} from "react"
 import circle from "../assets/img/circle.svg"
+import {GlobalState} from "../store/"
 
 const JenjangSekolah = () => {
-	const initState = [
-		{
-			id: 1,
-			title: "SD IT",
-			desc: "Sekolah Terpadu Islam",
-			jumlah: "69"
-		},
-		{
-			id: 2,
-			title: "MTs",
-			desc: "Madrasah Tsanawiyah",
-			jumlah: "69"
-		},
-		{
-			id: 3,
-			title: "MA",
-			desc: "Madrasah Aliyah",
-			jumlah: "69"
-		}
-	]
-
-	const [state] = useState(initState)
+	const {
+		data: {jenjangSekolah: state}
+	} = useContext(GlobalState)
 
 	return (
 		<main
@@ -34,7 +16,7 @@ const JenjangSekolah = () => {
 				Jenjang Sekolah
 			</span>
 			<div className=" flex flex-wrap md:justify-around my-10 ml-12">
-				{initState.map(sekolah => (
+				{state.map(sekolah => (
 					<div key={sekolah.id} className="text-left  flex justify-around mb-5">
 						<img
 							className="sm:h-full md:h-16 w-16 md:my-4"

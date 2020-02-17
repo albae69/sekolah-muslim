@@ -83,5 +83,25 @@
 			"tag": ["#ikhwan", "#akhwat", "#fulldayschool"],
 			"img": "https://cdn2.thecatapi.com/images/468.jpg"
 		}
+	],
+	"jenjangSekolah": [
+		{
+			"id": 1,
+			"title": "SD IT",
+			"desc": "Sekolah Terpadu Islam",
+			"jumlah": "69"
+		},
+		{
+			"id": 2,
+			"title": "MTs",
+			"desc": "Madrasah Tsanawiyah",
+			"jumlah": "69"
+		},
+		{
+			"id": 3,
+			"title": "MA",
+			"desc": "Madrasah Aliyah",
+			"jumlah": "69"
+		}
 	]
 }
