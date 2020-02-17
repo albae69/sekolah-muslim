@@ -1,6 +1,7 @@
 import React, {useState} from "react"
 import {Search, Modal} from "../components/"
 import {Link} from "react-router-dom"
+import JenjangSekolah from "./JenjangSekolah"
 
 const Header = () => {
 	const [open, setOpen] = useState(false)
@@ -68,6 +69,9 @@ const Header = () => {
 			</nav>
 			<hr className="mx-auto w-11/12 md:-my-6 my-0 opacity-50" />
 			<Search />
+			<div data-aos="fade-up" data-aos-duration="2000" className="m-auto">
+				<JenjangSekolah />
+			</div>
 		</div>
 	)
 }

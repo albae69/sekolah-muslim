@@ -1,5 +1,5 @@
 import React from "react"
-import {FormSearch, JenjangSekolah} from "../components/"
+import {FormSearch} from "../components/"
 
 const Search = () => {
 	return (
@@ -11,9 +11,6 @@ const Search = () => {
 			</div>
 			<div data-aos="fade-up" data-aos-duration="1000" data-aos-easing="linear">
 				<FormSearch />
-			</div>
-			<div data-aos="fade-up" data-aos-duration="2000">
-				<JenjangSekolah />
 			</div>
 		</div>
 	)

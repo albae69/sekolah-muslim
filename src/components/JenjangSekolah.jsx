@@ -10,9 +10,9 @@ const JenjangSekolah = () => {
 	return (
 		<main
 			data-aos="fade-up"
-			className="font-Nunito h-full w-full overflow-hidden"
+			className="font-Nunito h-full w-full overflow-hidden -my-10"
 		>
-			<span className="text-white text-2xl font-bold tracking-widest mb-16">
+			<span className="text-white text-2xl font-bold tracking-widest mb-16 flex justify-center">
 				Jenjang Sekolah
 			</span>
 			<div className=" flex flex-wrap md:justify-around my-10 ml-12">
