@@ -14,4 +14,4 @@ ReactDOM.render(
 	</Store>,
 	document.getElementById("root")
 )
-serviceWorker.register()
+serviceWorker.unregister()
