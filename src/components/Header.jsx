@@ -1,6 +1,5 @@
 import React, {useState} from "react"
-import {Search} from "../components/"
-// import quran from "../assets/img/quran.jpg"
+import {Search, Modal} from "../components/"
 import {Link} from "react-router-dom"
 
 const Header = () => {
@@ -10,15 +9,17 @@ const Header = () => {
 		setOpen(!open)
 	}
 
+	const [modal, setModal] = useState(false)
 	const toggleModal = () => {
-		alert("isi modal untuk submit data")
+		setModal(!modal)
 	}
 
 	return (
-		<div
-			className="bg-no-repeat bg-center bg-cover  w-full h-full"
-			// style={{background: `url(${quran})`, height: "80vh"}}
-		>
+		<div className="bg-no-repeat bg-center bg-cover  w-full h-full">
+			{/* <Modal
+				d={modal ? {display: "block"} : {display: "none"}}
+				click={toggleModal}
+			/> */}
 			<nav className="flex items-center justify-between flex-wrap p-6 font-Nunito md:mb-5">
 				<div className="flex items-center flex-shrink-0 text-white mr-6">
 					<Link to="/">
@@ -49,7 +50,7 @@ const Header = () => {
 				>
 					<div className="lg:flex-grow">
 						<a
-							href="#responsive-header"
+							href="#kontak"
 							className="block mt-4 lg:inline-block lg:mt-0 text-white hover:underline mr-4 text-sm font-bold tracking-wider"
 						>
 							Kontak
