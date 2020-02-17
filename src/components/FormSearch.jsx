@@ -9,28 +9,26 @@ const Form = () => {
 		"Kepualan Riau"
 	]
 
-	const initSekolah = [
-		{
-			"Sumatera Utara": [
-				"SMK Negeri 1 Percut Sei Tuan",
-				"SMP Negeri 43 Medan",
-				"SD Negeri 067248"
-			]
-		}
-	]
+	const initSekolah = ["SMKN 1 Percut Sei Tuan", "SMKN 1 Medan"]
+
+	const initState = {
+		sekolah: "",
+		daerah: ""
+	}
 
 	const [sekolah, setSekolah] = useState(initSekolah)
 	const [daerah, setDaerah] = useState(initDaerah)
-
-	const [input, setInput] = useState("")
+	const [input, setInput] = useState(initState)
 
 	const handleChange = e => {
 		const {name, value} = e.target
-		console.log({[name]: value})
+		setInput({...input, [name]: value})
 	}
 
 	const handleSubmit = e => {
 		e.preventDefault()
+		const {sekolah, daerah} = input
+		alert(`sekolah ${sekolah},daerah ${daerah}`)
 	}
 
 	return (

@@ -16,7 +16,7 @@ const SekolahPilihan = ({state, baseRoute, name}) => {
 			</p>
 			<div className="container flex justify-around  justify-center flex-wrap">
 				{state.map(state => (
-					<Link to={`/${baseRoute}/${state.title}`} key={state.id}>
+					<Link to={`/${state.title}`} key={state.id}>
 						<Card
 							img={state.img || quran}
 							title={state.title}

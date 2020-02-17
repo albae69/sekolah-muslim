@@ -1,5 +1,5 @@
 import React, {useContext} from "react"
-import {Header, Footer, Modal, DataSekolah} from "../components/"
+import {Header, Footer, DataSekolah} from "../components/"
 import {GlobalState} from "../store"
 
 const Home = () => {
@@ -10,18 +10,9 @@ const Home = () => {
 	return (
 		<div className=" w-full bg-blue-700 scrolling-auto">
 			<Header />
-			<DataSekolah
-				state={sekolahPilihan}
-				baseRoute="sekolah-pilihan"
-				name="Sekolah Pilihan"
-			/>
-			<DataSekolah
-				state={sekolahTerbaru}
-				baseRoute="sekolah-terbaru"
-				name="Sekolah Terbaru"
-			/>
+			<DataSekolah state={sekolahPilihan} name="Sekolah Pilihan" />
+			<DataSekolah state={sekolahTerbaru} name="Sekolah Terbaru" />
 			<Footer />
-			{/* <Modal /> */}
 		</div>
 	)
 }
