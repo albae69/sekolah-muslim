@@ -1,0 +1,87 @@
+{
+	"sekolahTerbaru": [
+		{
+			"id": 1,
+			"title": "a",
+			"desc": "lorem ipsum sit dolor amet",
+			"tag": ["#ikhwan", "#akhwat", "#fulldayschool"],
+			"img": "https://cdn2.thecatapi.com/images/366.jpg"
+		},
+		{
+			"id": 2,
+			"title": "b",
+			"desc": "lorem ipsum sit dolor amet",
+			"tag": ["#ikhwan", "#akhwat", "#fulldayschool"],
+			"img": "https://cdn2.thecatapi.com/images/367.jpg"
+		},
+		{
+			"id": 3,
+			"title": "c",
+			"desc": "lorem ipsum sit dolor amet",
+			"tag": ["#ikhwan", "#akhwat", "#fulldayschool"],
+			"img": "https://cdn2.thecatapi.com/images/368.jpg"
+		},
+		{
+			"id": 4,
+			"title": "d",
+			"desc": "lorem ipsum sit dolor amet",
+			"tag": ["#ikhwan", "#akhwat", "#fulldayschool"],
+			"img": "https://cdn2.thecatapi.com/images/369.jpg"
+		},
+		{
+			"id": 5,
+			"title": "e",
+			"desc": "lorem ipsum sit dolor amet",
+			"tag": ["#ikhwan", "#akhwat", "#fulldayschool"]
+		},
+		{
+			"id": 6,
+			"title": "f",
+			"desc": "lorem ipsum sit dolor amet",
+			"tag": ["#ikhwan", "#akhwat", "#fulldayschool"]
+		},
+		{
+			"id": 7,
+			"title": "g",
+			"desc": "lorem ipsum sit dolor amet",
+			"tag": ["#ikhwan", "#akhwat", "#fulldayschool"],
+			"img": "https://cdn2.thecatapi.com/images/372.jpg"
+		},
+		{
+			"id": 8,
+			"title": "h",
+			"desc": "lorem ipsum sit dolor amet",
+			"tag": ["#ikhwan", "#akhwat", "#fulldayschool"],
+			"img": "https://cdn2.thecatapi.com/images/373.jpg"
+		}
+	],
+	"sekolahPilihan": [
+		{
+			"id": 1,
+			"title": "a",
+			"desc": "lorem ipsum sit dolor amet",
+			"tag": ["#ikhwan", "#akhwat", "#fulldayschool"]
+		},
+		{
+			"id": 2,
+			"title": "b",
+			"desc": "lorem ipsum sit dolor amet",
+			"tag": ["#ikhwan", "#akhwat", "#fulldayschool"],
+			"img": "https://cdn2.thecatapi.com/images/367.jpg"
+		},
+		{
+			"id": 3,
+			"title": "c",
+			"desc": "lorem ipsum sit dolor amet",
+			"tag": ["#ikhwan", "#akhwat", "#fulldayschool"],
+			"img": "https://cdn2.thecatapi.com/images/368.jpg"
+		},
+		{
+			"id": 4,
+			"title": "d",
+			"desc": "lorem ipsum sit dolor amet",
+			"tag": ["#ikhwan", "#akhwat", "#fulldayschool"],
+			"img": "https://cdn2.thecatapi.com/images/468.jpg"
+		}
+	]
+}
