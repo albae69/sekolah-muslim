@@ -70,8 +70,32 @@
 		input[type="number"] {
 			-moz-appearance: textfield;
 		}
+		/* smooth scrolling */
 		html {
 			scroll-behavior: smooth;
+		}
+
+		/* scroll bar */
+		/* width */
+		::-webkit-scrollbar {
+			width: 10px;
+		}
+
+		/* Track */
+		::-webkit-scrollbar-track {
+			box-shadow: inset 0 0 5px grey;
+			border-radius: 5px;
+		}
+
+		/* Handle */
+		::-webkit-scrollbar-thumb {
+			background: #4d91da;
+			border-radius: 5px;
+		}
+
+		/* Handle on hover */
+		::-webkit-scrollbar-thumb:hover {
+			background: #2b6cb0;
 		}
 	</style>
 	<body>
