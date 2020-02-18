@@ -4,7 +4,7 @@ const Card = ({style, desc, title, tag, img}) => {
 	return (
 		<div
 			style={style}
-			className="bg-white md:h-10/11 md:w-64 w-11/12 mx-auto transform hover:-translate-y-4 font-Nunito mb-10 rounded-lg overflow-hidden hover:shadow-xl bg-gray-10"
+			className="bg-white md:h-10/11 md:w-64 w-full mx-auto transform hover:-translate-y-4 font-Nunito mb-10 rounded-lg overflow-hidden hover:shadow-xl bg-gray-10"
 		>
 			<img src={img} alt="" className="h-48 w-full p-2" />
 			<div className="px-6 py-1">

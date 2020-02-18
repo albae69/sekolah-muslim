@@ -13,7 +13,7 @@ const SekolahPilihan = ({state, baseRoute, name}) => {
 			<p className="text-white text-2xl font-bold tracking-widest mb-16 my-10 flex justify-center">
 				{name}
 			</p>
-			<div className="flex justify-around mx-10  justify-center flex-wrap">
+			<div className="flex justify-around mx-5 md:mx-10  justify-center flex-wrap">
 				{state.map(state => (
 					<Link to={`/${baseRoute}/${state.title}`} key={state.id}>
 						<Card
