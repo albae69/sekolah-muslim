@@ -8,7 +8,7 @@ const Home = () => {
 	} = useContext(GlobalState)
 
 	return (
-		<div className=" w-full bg-blue-700">
+		<div className=" w-full bg-blue-500">
 			<Header />
 			<DataSekolah
 				state={sekolahPilihan}
