@@ -1,5 +1,5 @@
 import React, {useContext} from "react"
-import {Header, Footer, Modal, DataSekolah} from "../components/"
+import {Header, Footer, DataSekolah} from "../components/"
 import {GlobalState} from "../store"
 
 const Home = () => {
@@ -8,7 +8,7 @@ const Home = () => {
 	} = useContext(GlobalState)
 
 	return (
-		<div className=" w-full bg-blue-700">
+		<div className="h-full w-full bg-blue-500">
 			<Header />
 			<DataSekolah
 				state={sekolahPilihan}
@@ -21,7 +21,6 @@ const Home = () => {
 				name="Sekolah Terbaru"
 			/>
 			<Footer />
-			{/* <Modal /> */}
 		</div>
 	)
 }

@@ -17,10 +17,12 @@ const Header = () => {
 
 	return (
 		<div className="bg-no-repeat bg-center bg-cover  w-full h-full">
-			{/* <Modal
-				d={modal ? {display: "block"} : {display: "none"}}
-				click={toggleModal}
-			/> */}
+			<div className="flex justify-center">
+				<Modal
+					d={modal ? {display: "block"} : {display: "none"}}
+					click={toggleModal}
+				/>
+			</div>
 			<nav className="flex items-center justify-between flex-wrap p-6 font-Nunito md:mb-5">
 				<div className="flex items-center flex-shrink-0 text-white mr-6">
 					<Link to="/">
