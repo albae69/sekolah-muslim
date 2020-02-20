@@ -13,14 +13,20 @@ const SekolahPilihan = ({state, baseRoute, name}) => {
 			<p className="text-white text-2xl font-bold tracking-widest mb-16 flex justify-center">
 				{name}
 			</p>
-			<div className="flex justify-between flex-wrap mx-5">
+			<div className="flex justify-between flex-wrap mx-5 lg:justify-center">
 				{state.map(state => (
-					<Link to={`/${baseRoute}/${state.title}`} key={state.id}>
+					<Link
+						to={`/${baseRoute}/${state.namaSekolah
+							.replace(/ /g, "-")
+							.toLowerCase()}`}
+						key={state.id}
+						className="mb-20 mx-auto"
+					>
 						<Card
-							img={state.img || quran}
-							title={state.title}
-							desc={state.desc}
-							tag={state.tag}
+							gambar={state.gambar || quran}
+							namaSekolah={state.namaSekolah}
+							namaYayasan={state.namaYayasan}
+							kota={state.kota}
 						/>
 					</Link>
 				))}

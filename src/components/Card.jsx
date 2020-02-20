@@ -1,26 +1,18 @@
 import React from "react"
 
-const Card = ({style, desc, title, tag, img}) => {
+const Card = ({style, namaYayasan, namaSekolah, gambar, kota}) => {
 	return (
 		<div
 			style={style}
-			className=" bg-white md:h-10/11 md:w-64 w-full transform hover:-translate-y-4 font-Nunito mb-10 rounded-lg overflow-hidden hover:shadow-xl bg-gray-10 mb-20"
+			className=" bg-white w-64  transform hover:-translate-y-4 font-Nunito rounded-lg overflow-hidden hover:shadow-xl bg-gray-10 lg:ml-5"
 		>
-			<img src={img} alt="" className="h-48 w-full p-2" />
+			<img src={gambar} alt="" className="h-48 w-full p-2" />
 			<div className="px-6 py-1">
-				<p className="text-gray-600 font-bold text-2xl">{title}</p>
-				<p className="text-gray-700 text-sm">{desc}</p>
+				<p className="text-gray-600 font-bold text-xl">{namaSekolah}</p>
+				<p className="text-gray-700 text-sm">{namaYayasan}</p>
+				<p className="text-gray-700 text-sm">{kota}</p>
 			</div>
-			<div className="px-6 py-4">
-				{tag.map(tag => (
-					<span
-						key={tag}
-						className="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-5"
-					>
-						{tag}
-					</span>
-				))}
-			</div>
+			<div className="px-6 py-4"></div>
 		</div>
 	)
 }
