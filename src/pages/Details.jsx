@@ -26,7 +26,7 @@ const Details = props => {
 	const container = state => (
 		<div key={state.id}>
 			<div className="flex justify-between flex-wrap text-white tracking-wider font-Nunito">
-				<div className="mx-12  md:mx-16 ">
+				<div className="mx-12 md:mx-16 ">
 					<p className="text-2xl font-bold">{state.namaSekolah}</p>
 					<p>{state.namaYayasan}</p>
 					<p className="italic">{state.kota}</p>
@@ -36,7 +36,7 @@ const Details = props => {
 						className="rounded-lg my-6 h-64 w-64"
 					/>
 				</div>
-				<div className="text-center md:text-left mx-12 md:-mx-24  my-10 md:my-24">
+				<div className="text-center md:text-left mx-auto my-10 md:my-24">
 					<p className="text-2xl">Informasi Sekolah</p>
 					<p>Uang Pendaftaran : Rp.{state.uangPendaftaran}</p>
 					<p>Uang SPP per Bulan : Rp.{state.uangSppBulanan}</p>
@@ -45,10 +45,27 @@ const Details = props => {
 					<a href={`http://${state.website}`} target="blank">
 						<p>Website : {state.website}</p>
 					</a>
+					<div className="flex md:justify-start justify-center">
+						<p className="m-5">
+							<a href="http://facebook.com" target="blank">
+								<img src={fb} alt="" />
+							</a>
+						</p>
+						<p className="m-5">
+							<a href="http://instagram.com" target="blank">
+								<img src={ig} alt="" />
+							</a>
+						</p>
+						<p className="m-5 py-1">
+							<a href="http://youtube.com" target="blank">
+								<img src={yt} alt="" />
+							</a>
+						</p>
+					</div>
 				</div>
-				<div className="my-10 md:my-24 mr-16">
-					<p className="text-center md:text-left text-2xl">Galeri</p>
-					<div className="mx-12 md:mx-0 border rounded-lg bg-white h-64 w-64 ">
+				<div className="mx-auto my-10 md:my-24">
+					<p className="text-center text-2xl">Galeri</p>
+					<div className="md:mx-12 md:mx-0 border rounded-lg bg-white h-64 w-64 ">
 						<div className="flex justify-between flex-wrap">
 							<div className="flex-grow bg-gray-400 h-16 m-3 rounded"></div>
 							<div className="flex-grow bg-gray-400 h-16 m-3 rounded"></div>
