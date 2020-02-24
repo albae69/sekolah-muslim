@@ -16,7 +16,7 @@ const Header = () => {
 	}
 
 	return (
-		<div className="bg-no-repeat bg-center bg-cover  w-full h-full">
+		<div className="bg-no-repeat bg-center bg-cover w-full h-full">
 			<div className="flex justify-center">
 				<Modal
 					d={modal ? {display: "block"} : {display: "none"}}

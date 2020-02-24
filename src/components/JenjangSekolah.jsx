@@ -11,6 +11,7 @@ const JenjangSekolah = () => {
 		<main
 			data-aos="fade-up"
 			className="font-Nunito h-full w-full overflow-hidden -my-10 mb-20"
+			style={{maxWidth: "1300px", margin: "auto"}}
 		>
 			<span className="text-white text-2xl font-bold tracking-widest mb-16 flex justify-center">
 				Jenjang Sekolah

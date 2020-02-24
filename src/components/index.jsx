@@ -6,6 +6,7 @@ import DataSekolah from "./DataSekolah"
 import TambahSekolah from "./TambahSekolah"
 import FormSearch from "./FormSearch"
 import Modal from "./Modal"
+import Image from "./Image"
 
 export {
 	Header,
@@ -15,5 +16,6 @@ export {
 	DataSekolah,
 	TambahSekolah,
 	FormSearch,
-	Modal
+	Modal,
+	Image
 }

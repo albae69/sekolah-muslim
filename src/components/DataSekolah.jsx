@@ -3,7 +3,7 @@ import {Link} from "react-router-dom"
 import Card from "./Card"
 import quran from "../assets/img/quran.jpg"
 
-const SekolahPilihan = ({state, baseRoute, name}) => {
+const DataSekolah = ({state, baseRoute, name}) => {
 	return (
 		<div
 			data-aos="fade-up"
@@ -13,7 +13,10 @@ const SekolahPilihan = ({state, baseRoute, name}) => {
 			<p className="text-white text-2xl font-bold tracking-widest mb-16 flex justify-center">
 				{name}
 			</p>
-			<div className="flex justify-between flex-wrap mx-5 lg:justify-center">
+			<div
+				className="flex justify-between flex-wrap mx-5 lg:justify-center"
+				style={{maxWidth: "1300px", margin: "auto"}}
+			>
 				{state.map(state => (
 					<Link
 						to={`/${baseRoute}/${state.namaSekolah
@@ -35,4 +38,4 @@ const SekolahPilihan = ({state, baseRoute, name}) => {
 	)
 }
 
-export default SekolahPilihan
+export default DataSekolah

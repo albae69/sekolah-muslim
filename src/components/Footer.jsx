@@ -3,7 +3,10 @@ import React from "react"
 const Footer = () => {
 	return (
 		<>
-			<div className="h-full w-full pt-20 text-white  font-Nunito  flex justify-around justify-center flex-wrap">
+			<div
+				className="h-full w-full pt-20 text-white  font-Nunito  flex justify-around justify-center flex-wrap"
+				style={{maxWidth: "1300px", margin: "auto"}}
+			>
 				<div className="flex-grow w-full  md:text-left text-center  mb-10   md:w-1/5 md:mx-32">
 					<span className="text-4xl font-bold tracking-widest">
 						Sekolah Muslim
