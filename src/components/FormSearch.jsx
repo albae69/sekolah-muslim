@@ -35,6 +35,7 @@ const Form = () => {
 		<form
 			onSubmit={handleSubmit}
 			className=" px-8 pt-6 pb-8 mb-10 flex flex-col my-2 font-Nunito"
+			style={{maxWidth: "1300px", margin: "auto"}}
 		>
 			<div className="lg:mx-64 md:flex mb-6">
 				<div className="md:w-1/2 px-3 mb-6 md:mb-0">

@@ -8,7 +8,7 @@ const Card = ({style, namaYayasan, namaSekolah, gambar, kota}) => {
 		>
 			<img src={gambar} alt="" className="h-48 w-full p-2" />
 			<div className="px-6 py-1">
-				<p className="text-gray-600 font-bold text-xl">{namaSekolah}</p>
+				<p className="text-gray-600 font-bold text-md">{namaSekolah}</p>
 				<p className="text-gray-700 text-sm">{namaYayasan}</p>
 				<p className="text-gray-700 text-sm">{kota}</p>
 			</div>
