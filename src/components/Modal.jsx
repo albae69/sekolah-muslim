@@ -1,13 +1,12 @@
 import React, {useState} from "react"
 import ReactDOM from "react-dom"
+import NumberFormat from "react-number-format"
 
 const Modal = ({d, click}) => {
 	const initialState = {
 		namaSekolah: "",
 		jenjang: "",
 		namaYayasan: "",
-		uangPendaftaran: "",
-		uangSppBulanan: "",
 		desc: "",
 		alamat: "",
 		kota: "",
@@ -16,44 +15,46 @@ const Modal = ({d, click}) => {
 		email: "",
 		website: "",
 		videoProfile: "",
-		brosur: undefined,
-		gambar: undefined
+		brosur: [],
+		gambar: []
 	}
-
-	const data = []
-
-	const [state, setState] = useState(data)
+	// controlled input
+	const [state, setState] = useState([])
 	const [input, setInput] = useState(initialState)
 
+	// controlled input by react-number-format
+	const [uang, setUang] = useState({
+		uangPendaftaran: "",
+		uangSppBulanan: ""
+	})
+
+	// handle input
 	const handleChange = e => {
 		const {name, value} = e.target
 		setInput({...input, [name]: value})
 	}
 
+	// handle form
 	const handleSubmit = e => {
 		e.preventDefault()
-		setState({...input, input})
-		console.log(state)
+		let datas = Object.assign(input, uang)
+		setState(datas)
 	}
+	console.log(state)
 
+	// modal
 	return ReactDOM.createPortal(
-		<div
-			className="z-50 bg-smoke flex justify-center font-Nunito overflow-auto"
-			style={d}
-			onClick={click}
-		>
+		<div className="modal bg-smoke font-Nunito" style={d} onClick={click}>
 			<form
 				onClick={e => e.stopPropagation()}
 				onSubmit={handleSubmit}
-				className="bg-blue-600 shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2 mx-auto w-4/5"
+				className="form"
 			>
 				<div className="-mx-3 md:flex mb-4">
 					<div className="md:w-full px-3 mb-6 md:mb-0">
-						<label className="block text-white uppercase tracking-widest  md:text-xl text-sm font-bold mb-2">
-							Nama Sekolah
-						</label>
+						<label className="label md:text-xl">Nama Sekolah</label>
 						<input
-							className="appearance-none block  w-full bg-grey-lighter  border border-grey-lighter rounded py-3 px-4"
+							className="input bg-grey-lighter border-grey-lighter"
 							type="text"
 							placeholder="nama sekolah"
 							name="namaSekolah"
@@ -63,12 +64,10 @@ const Modal = ({d, click}) => {
 						/>
 					</div>
 					<div className="md:w-1/2 px-3 mb-6">
-						<label className="block text-white uppercase tracking-widest  md:text-xl text-sm font-bold mb-2">
-							Jenjang
-						</label>
+						<label className="md:text-xl label">Jenjang</label>
 						<div className="relative">
 							<input
-								className="block  appearance-none w-full bg-grey-lighter border border-grey-lighter  py-3 px-4 pr-8 rounded"
+								className="input bg-grey-lighter border-grey-lighter"
 								list="jenjang"
 								placeholder="pilih jenjang"
 								name="jenjang"
@@ -83,11 +82,9 @@ const Modal = ({d, click}) => {
 						</div>
 					</div>
 					<div className="md:w-1/2 px-3">
-						<label className="block text-white uppercase tracking-widest  md:text-xl text-sm font-bold mb-2">
-							Yayasan
-						</label>
+						<label className="label md:text-xl">Yayasan</label>
 						<input
-							className="appearance-none block w-full bg-grey-lighter  border border-grey-lighter rounded py-3 px-4"
+							className="input bg-grey-lighter border-grey-lighter"
 							type="text"
 							placeholder="nama yayasan"
 							name="namaYayasan"
@@ -99,41 +96,42 @@ const Modal = ({d, click}) => {
 				</div>
 				<div className="-mx-3 md:flex mb-6">
 					<div className="md:w-1/2 px-3 mb-6 md:mb-0">
-						<label className="block text-white uppercase tracking-widest  md:text-xl text-sm font-bold mb-2">
-							Uang Pendaftaran
-						</label>
-						<input
-							className="appearance-none block  w-full bg-grey-lighter  border border-red rounded py-3 px-4 mb-3"
-							type="number"
-							placeholder="biaya pendaftaran"
+						<label className="md:text-xl label">Uang Pendaftaran</label>
+						<NumberFormat
+							className="input bg-grey-lighter border-grey-lighter"
+							placeholder="uang pendaftaran"
 							name="uangPendaftaran"
-							value={input.uangPendaftaran}
-							onChange={handleChange}
+							value={uang.uangPendaftaran}
+							thousandSeparator={true}
+							prefix={"Rp."}
 							autoComplete="off"
+							onValueChange={values => {
+								const {formattedValue} = values
+								setUang({uangPendaftaran: formattedValue})
+							}}
 						/>
 					</div>
 					<div className="md:w-1/2 px-3">
-						<label className="block text-white uppercase tracking-widest  md:text-xl text-sm font-bold mb-2">
-							Uang SPP Bulanan
-						</label>
-						<input
-							className="appearance-none block w-full bg-grey-lighter  border border-grey-lighter rounded py-3 px-4"
-							type="number"
+						<label className="md:text-xl label">Uang SPP Bulanan</label>
+						<NumberFormat
+							className="input bg-grey-lighter border-grey-lighter"
 							placeholder="spp bulanan"
 							name="uangSppBulanan"
-							value={input.uangSppBulanan}
-							onChange={handleChange}
+							value={uang.uangSppBulanan}
+							thousandSeparator={true}
+							prefix={"Rp."}
 							autoComplete="off"
+							onValueChange={values => {
+								const {formattedValue} = values
+								setUang({...uang, uangSppBulanan: formattedValue})
+							}}
 						/>
 					</div>
 				</div>
 				<div className="mb-5">
-					<label className="block text-white uppercase tracking-widest  md:text-xl text-sm font-bold mb-2">
-						Deskripsi Sekolah
-					</label>
-
+					<label className="md:text-xl label">Deskripsi Sekolah</label>
 					<textarea
-						className="h-32 p-2 w-full resize-none border rounded focus:outline-none focus:shadow-outline"
+						className="textarea focus:outline-none focus:shadow-outline"
 						placeholder="deskripsi sekolah.."
 						name="desc"
 						value={input.desc}
@@ -143,12 +141,9 @@ const Modal = ({d, click}) => {
 				</div>
 				<div className="-mx-3 md:flex mb-4">
 					<div className="md:w-full px-3 mb-6 md:mb-0">
-						<label className="block text-white uppercase tracking-widest  md:text-xl text-sm font-bold mb-2">
-							Alamat Sekolah
-						</label>
+						<label className="md:text-xl label">Alamat Sekolah</label>
 						<textarea
-							className="appearance-none block w-full bg-grey-lighter border
-							border-grey-lighter rounded py-3 px-4 resize-none"
+							className="textareaMD bg-grey-lighter border border-grey-lighter"
 							type="text"
 							placeholder="alamat sekolah.."
 							name="alamat"
@@ -158,12 +153,10 @@ const Modal = ({d, click}) => {
 						></textarea>
 					</div>
 					<div className="md:w-1/2 px-3 mb-4">
-						<label className="block text-white uppercase tracking-widest  md:text-xl text-sm font-bold mb-2">
-							Kota / Kabupaten
-						</label>
+						<label className="md:text-xl label">Kota / Kabupaten</label>
 						<div className="relative">
 							<input
-								className="block  appearance-none w-full bg-grey-lighter border border-grey-lighter  py-3 px-4 pr-8 rounded"
+								className="input bg-grey-lighter border-grey-lighter"
 								list="kota"
 								placeholder="pilih kota/kabupaten"
 								name="kota"
@@ -178,11 +171,9 @@ const Modal = ({d, click}) => {
 						</div>
 					</div>
 					<div className="md:w-1/2 px-3 mb-4">
-						<label className="block text-white uppercase tracking-widest  md:text-xl text-sm font-bold mb-2">
-							Google Maps
-						</label>
+						<label className="md:text-xl label">Google Maps</label>
 						<input
-							className="appearance-none block w-full bg-grey-lighter  border border-grey-lighter rounded py-3 px-4"
+							className="input bg-grey-lighter border-grey-lighter"
 							type="text"
 							placeholder="link google maps."
 							name="gmaps"
@@ -194,12 +185,10 @@ const Modal = ({d, click}) => {
 				</div>
 				<div className="-mx-3 md:flex mb-4">
 					<div className="md:w-1/2 px-3 mb-4">
-						<label className="block text-white uppercase tracking-widest  md:text-xl text-sm font-bold mb-2">
-							Nomor Telepon
-						</label>
+						<label className="md:text-xl label">Nomor Telepon</label>
 						<div className="relative">
 							<input
-								className="block  appearance-none w-full bg-grey-lighter border border-grey-lighter  py-3 px-4 pr-8 rounded"
+								className="input bg-grey-lighter border-grey-lighter"
 								placeholder="nomor telepon sekolah"
 								type="number"
 								name="phoneNumber"
@@ -210,12 +199,10 @@ const Modal = ({d, click}) => {
 						</div>
 					</div>
 					<div className="md:w-1/2 px-3 mb-4">
-						<label className="block text-white uppercase tracking-widest  md:text-xl text-sm font-bold mb-2">
-							Email
-						</label>
+						<label className="md:text-xl label">Email</label>
 						<div className="relative">
 							<input
-								className="block  appearance-none w-full bg-grey-lighter border border-grey-lighter  py-3 px-4 pr-8 rounded"
+								className="input bg-grey-lighter border-grey-lighter"
 								placeholder="email sekolah"
 								type="email"
 								name="email"
@@ -226,12 +213,10 @@ const Modal = ({d, click}) => {
 						</div>
 					</div>
 					<div className="md:w-1/2 px-3 mb-4">
-						<label className="block text-white uppercase tracking-widest  md:text-xl text-sm font-bold mb-2">
-							Website
-						</label>
+						<label className="md:text-xl label">Website</label>
 						<div className="relative">
 							<input
-								className="block  appearance-none w-full bg-grey-lighter border border-grey-lighter  py-3 px-4 pr-8 rounded"
+								className="input bg-grey-lighter border-grey-lighter"
 								placeholder="alamat website sekolah"
 								type="text"
 								name="website"
@@ -244,9 +229,7 @@ const Modal = ({d, click}) => {
 				</div>
 				<div className="-mx-3 md:flex mb-4 text-white">
 					<div className="md:w-1/2 px-3 mb-4">
-						<label className="block text-white uppercase tracking-widest  md:text-xl text-sm font-bold mb-2">
-							Video Profile Sekolah
-						</label>
+						<label className="md:text-xl label">Video Profile Sekolah</label>
 						<div className="relative">
 							<input
 								className="block  text-black appearance-none w-full bg-grey-lighter border border-grey-lighter  py-3 px-4 pr-8 rounded"
@@ -260,12 +243,10 @@ const Modal = ({d, click}) => {
 						</div>
 					</div>
 					<div className="md:w-1/2 px-3 mb-4">
-						<label className="block text-white uppercase tracking-widest  md:text-xl text-sm font-bold mb-2">
-							Brosur Sekolah
-						</label>
+						<label className="md:text-xl label">Brosur Sekolah</label>
 						<div className="relative">
 							<input
-								className="block  appearance-none w-full bg-grey-lighter border border-grey-lighter  py-3 px-4 pr-8 rounded"
+								className="input bg-grey-lighter border-grey-lighter"
 								type="file"
 								name="brosur"
 								value={input.brosur}
@@ -275,12 +256,10 @@ const Modal = ({d, click}) => {
 						</div>
 					</div>
 					<div className="md:w-1/2 px-3 mb-4">
-						<label className="block text-white uppercase tracking-widest  md:text-xl text-sm font-bold mb-2">
-							Gambar Sekolah
-						</label>
+						<label className="md:text-xl label">Gambar Sekolah</label>
 						<div className="relative">
 							<input
-								className="block  appearance-none w-full bg-grey-lighter border border-grey-lighter  py-3 px-4 pr-8 rounded"
+								className="input bg-grey-lighter border-grey-lighter"
 								type="file"
 								name="gambar"
 								value={input.gambar}
@@ -290,10 +269,7 @@ const Modal = ({d, click}) => {
 						</div>
 					</div>
 				</div>
-				<button
-					type="submit"
-					className="w-full border h-12 text-2xl text-white tracking-widest font-Nunito rounded"
-				>
+				<button type="submit" className="submit-btn font-Nunito">
 					Kirim
 				</button>
 			</form>

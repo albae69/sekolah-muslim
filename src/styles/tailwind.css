@@ -1,11 +1,186 @@
 @tailwind base;
 @tailwind components;
+
+/* Wrap */
+
+.wrap {
+	@apply .h-full .w-full .bg-blue-500;
+}
+
+/* Wrap */
+
+/* Navbar */
+.navbar {
+	@apply .flex .items-center .justify-between .flex-wrap .p-6;
+}
+
+.nav {
+	@apply .flex .items-center .flex-shrink-0 .text-white .mr-6 .text-center;
+}
+
+.brand {
+	@apply .font-semibold .text-xl .tracking-wide .cursor-pointer;
+}
+
+/* Navbar */
+
+/* Header */
+
+.header {
+	@apply .bg-no-repeat .bg-center .bg-cover .w-full .h-full;
+}
+
+.header-modal {
+	@apply .flex .justify-center;
+}
+
+.header-wrap {
+	@apply .flex .items-center .justify-between .flex-wrap .p-6;
+}
+
+.header-wrap-title {
+	@apply .flex .items-center .flex-shrink-0 .text-white .mr-6;
+}
+
+.header-wrap-title-main {
+	@apply .font-semibold text-xl .text-center .tracking-wide .cursor-pointer;
+}
+
+.header-menu-button {
+	@apply .flex .items-center .px-3 .py-2 .border .rounded .text-teal-200 .border-teal-400  .mx-0;
+}
+
+.header-menu-button:hover {
+	@apply text-white;
+}
+
+.header-contact {
+	@apply .block .mt-4  .text-white .mr-4 .text-sm .font-bold .tracking-wider;
+}
+
+.header-contact:hover {
+	@apply .underline;
+}
+
+.header-tambah-sekolah {
+	@apply .inline-block .px-4 .py-2 .leading-none .border .rounded .font-bold .tracking-wide .text-white .border-white  .mt-4  .text-sm;
+}
+
+.header-tambah-sekolah:hover {
+	@apply .text-teal-500 .bg-white;
+}
+
+.hr {
+	@apply .mx-auto .w-11/12  .my-0 .opacity-50;
+}
+
+/* Header */
+
+/* Jenjang Sekolah */
+
+.jenjang-sekolah {
+	@apply .h-full .w-full .overflow-hidden -my-10 .mb-20;
+}
+
+.jenjang-sekolah-title {
+	@apply .text-white .text-2xl .font-bold .tracking-widest .mb-16 .flex .justify-center;
+}
+
+.jenjang-sekolah-wrap {
+	@apply .flex .flex-wrap .my-10 .ml-12;
+}
+
+.jenjang-sekolah-wrap_map {
+	@apply .text-left .flex .justify-around .mb-5;
+}
+
+.jenjang-sekolah-text {
+	@apply .mx-5 .my-2 .text-white .font-semibold .tracking-widest;
+}
+
+/* Jenjang Sekolah */
+
+/* Details */
+
+.details {
+	@apply .flex .justify-between .flex-wrap .text-white .tracking-wider;
+}
+
+.nama-sekolah {
+	@apply .text-2xl .font-bold;
+}
+
+.gambar-sekolah {
+	@apply .border .rounded-lg .my-6 .h-64 .w-64 .border-white .border-8;
+}
+
+/* Details */
+
+/* Search */
+.search {
+	@apply .text-center .mx-auto .my-24;
+}
+
+.search-title {
+	@apply .text-white .my-10  .font-semibold .tracking-wide .mx-0;
+}
+
+/* Search */
+
+/* Modal */
+.modal {
+	@apply .z-50  .flex .justify-center .overflow-auto;
+}
+.form {
+	@apply .bg-blue-600 .shadow-md .rounded .px-8 .pt-6 .pb-8 .mb-4 .flex .flex-col .my-2 .mx-auto .w-4/5;
+}
+
+.label {
+	@apply .block .text-white .uppercase .text-sm .font-bold .mb-2 .tracking-widest;
+}
+
+.input {
+	@apply .appearance-none .block .border  .rounded .py-3 .px-4 .w-full;
+}
+
+.textarea {
+	@apply .h-32 .p-2 .w-full .resize-none .border .rounded;
+}
+
+.textareaMD {
+	@apply .appearance-none .block .w-full  .rounded .py-3 .px-4 .resize-none;
+}
+
+.submit-btn {
+	@apply .w-full .border .h-12 .text-3xl .text-white .tracking-widest .rounded;
+}
+
+.submit-btn:hover {
+	@apply .bg-white .text-blue-500 .font-bold;
+}
+
+/* Modal */
+
+/* footer */
+.footer {
+	@apply .h-full w-full .pt-20 .text-white  .flex .justify-around .justify-center .flex-wrap;
+}
+
+.footer-column-1 {
+	@apply .flex-grow .w-full .text-center  .mb-10;
+}
+
+.footer-column-1-title {
+	@apply .text-4xl .font-bold .tracking-widest;
+}
+
+.footer-column-1-paragraph {
+	@apply .text-base .mx-10;
+}
+
+.footer-column-2 {
+	@apply .flex-grow .w-full  .mb-10 .tracking-wider  .text-center;
+}
+
+/* footer */
 @tailwind utilities;
-
-.btn:hover {
-	@apply border-transparent;
-}
-
-.btn:focus {
-	@apply outline-none;
-}

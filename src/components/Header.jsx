@@ -16,26 +16,23 @@ const Header = () => {
 	}
 
 	return (
-		<div className="bg-no-repeat bg-center bg-cover w-full h-full">
-			<div className="flex justify-center">
+		<div className="header">
+			<div className="header-modal">
 				<Modal
 					d={modal ? {display: "block"} : {display: "none"}}
 					click={toggleModal}
 				/>
 			</div>
-			<nav className="flex items-center justify-between flex-wrap p-6 font-Nunito md:mb-5">
-				<div className="flex items-center flex-shrink-0 text-white mr-6">
+			<nav className="header-wrap font-Nunito md:mb-5">
+				<div className="header-wrap-title">
 					<Link to="/">
-						<span className="md:mx-10 md:my-5 font-semibold text-xl text-center lg:text-4xl tracking-wide cursor-pointer">
+						<span className="header-wrap-title-main md:mx-10 md:my-5 lg:text-4xl ">
 							Sekolah Muslim
 						</span>
 					</Link>
 				</div>
 				<div className="block lg:hidden">
-					<button
-						onClick={handleClick}
-						className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white btn mx-0"
-					>
+					<button onClick={handleClick} className="header-menu-button btn">
 						<svg
 							className="fill-current h-3 w-3"
 							viewBox="0 0 20 20"
@@ -54,7 +51,7 @@ const Header = () => {
 					<div className="lg:flex-grow">
 						<a
 							href="#kontak"
-							className="block mt-4 lg:inline-block lg:mt-0 text-white hover:underline mr-4 text-sm font-bold tracking-wider"
+							className="header-contact lg:inline-block lg:mt-0"
 						>
 							Kontak
 						</a>
@@ -62,16 +59,16 @@ const Header = () => {
 					<div>
 						<button
 							onClick={toggleModal}
-							className="inline-block px-4 py-2 leading-none border rounded font-bold tracking-wide text-white border-white btn hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 text-sm"
+							className="header-tambah-sekolah lg:mt-0 btn"
 						>
 							Tambah Sekolah
 						</button>
 					</div>
 				</div>
 			</nav>
-			<hr className="mx-auto w-11/12 md:-my-6 my-0 opacity-50" />
+			<hr className="hr md:-my-6" />
 			<Search />
-			<div data-aos="fade-up" data-aos-duration="2000" className="m-auto">
+			<div className="m-auto">
 				<JenjangSekolah />
 			</div>
 		</div>

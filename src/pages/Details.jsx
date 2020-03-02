@@ -1,9 +1,9 @@
 import React, {useContext} from "react"
+import _ from "lodash"
 import {GlobalState} from "../store"
 import {fb, ig, yt} from "../assets/icons"
 import quran from "../assets/img/quran.jpg"
-import {Link} from "react-router-dom"
-import {Footer} from "../components/"
+import {Footer, Navbar} from "../components/"
 
 const Details = props => {
 	let {namaSekolah} = props.match.params
@@ -12,12 +12,14 @@ const Details = props => {
 		data: {sekolahPilihan, sekolahTerbaru}
 	} = useContext(GlobalState)
 
-	const dataSekolahTerbaru = sekolahTerbaru.filter(
+	const dataSekolahTerbaru = _.filter(
+		sekolahTerbaru,
 		data =>
 			data.namaSekolah.replace(/ /g, "-").toLowerCase() ===
 			namaSekolah.replace(/ /g, "-").toLowerCase()
 	)
-	const dataSekolahPilihan = sekolahPilihan.filter(
+	const dataSekolahPilihan = _.filter(
+		sekolahPilihan,
 		data =>
 			data.namaSekolah.replace(/ /g, "-").toLowerCase() ===
 			namaSekolah.replace(/ /g, "-").toLowerCase()
@@ -25,16 +27,12 @@ const Details = props => {
 
 	const container = state => (
 		<div key={state.id}>
-			<div className="flex justify-between flex-wrap text-white tracking-wider font-Nunito">
+			<div className="details font-Nunito">
 				<div className="mx-12 md:mx-16 ">
-					<p className="text-2xl font-bold">{state.namaSekolah}</p>
+					<p className="nama-sekolah">{state.namaSekolah}</p>
 					<p>{state.namaYayasan}</p>
 					<p className="italic">{state.kota}</p>
-					<img
-						src={state.gambar || quran}
-						alt=""
-						className="rounded-lg my-6 h-64 w-64"
-					/>
+					<img src={state.gambar || quran} alt="" className="gambar-sekolah" />
 				</div>
 				<div className="text-center md:text-left mx-auto my-10 md:my-24">
 					<p className="text-2xl">Informasi Sekolah</p>
@@ -63,7 +61,7 @@ const Details = props => {
 						</p>
 					</div>
 				</div>
-				<div className="mx-auto my-10 md:my-24">
+				{/* <div className="mx-auto my-10 md:my-24">
 					<p className="text-center text-2xl">Galeri</p>
 					<div className="md:mx-12 md:mx-0 border rounded-lg bg-white h-64 w-64 ">
 						<div className="flex justify-between flex-wrap">
@@ -78,26 +76,18 @@ const Details = props => {
 							<div className="flex-grow bg-gray-400 h-16 m-3 rounded"></div>
 						</div>
 					</div>
-				</div>
+				</div> */}
 			</div>
 		</div>
 	)
 
 	const dataSekolah = pathname.includes("sekolah-terbaru")
-		? dataSekolahTerbaru.map(state => container(state))
-		: dataSekolahPilihan.map(state => container(state))
+		? _.map(dataSekolahTerbaru, state => container(state))
+		: _.map(dataSekolahPilihan, state => container(state))
 
 	return (
-		<div className="h-full w-full bg-blue-500">
-			<nav className="flex items-center justify-between flex-wrap p-6 font-Nunito">
-				<div className="flex items-center flex-shrink-0 text-white mr-6 text-center ">
-					<Link to="/">
-						<span className="md:mx-10 md:my-5 font-semibold text-xl lg:text-4xl tracking-wide cursor-pointer">
-							Sekolah Muslim
-						</span>
-					</Link>
-				</div>
-			</nav>
+		<div className="wrap">
+			<Navbar />
 			<main className="my-20">{dataSekolah}</main>
 			<Footer />
 		</div>

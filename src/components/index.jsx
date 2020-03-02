@@ -7,6 +7,7 @@ import TambahSekolah from "./TambahSekolah"
 import FormSearch from "./FormSearch"
 import Modal from "./Modal"
 import Image from "./Image"
+import Navbar from "./Navbar"
 
 export {
 	Header,
@@ -17,5 +18,6 @@ export {
 	TambahSekolah,
 	FormSearch,
 	Modal,
-	Image
+	Image,
+	Navbar
 }

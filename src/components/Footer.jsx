@@ -4,20 +4,18 @@ const Footer = () => {
 	return (
 		<>
 			<div
-				className="h-full w-full pt-20 text-white  font-Nunito  flex justify-around justify-center flex-wrap"
+				className="footer font-Nunito"
 				style={{maxWidth: "1300px", margin: "auto"}}
 			>
-				<div className="flex-grow w-full  md:text-left text-center  mb-10   md:w-1/5 md:mx-32">
-					<span className="text-4xl font-bold tracking-widest">
-						Sekolah Muslim
-					</span>
-					<p className="text-base mx-10 md:mx-0">
+				<div className="footer-column-1 md:w-1/5 md:mx-32  md:text-left">
+					<span className="footer-column-1-title">Sekolah Muslim</span>
+					<p className="footer-column-1-paragraph md:mx-0">
 						Lorem ipsum dolor sit amet consectetur adipisicing. Earum ipsam
 						expedita fugiat excepturi laborum reprehenderit possimus, vero
 						similique beatae.
 					</p>
 				</div>
-				<div className="flex-grow w-full  mb-10 md:w-1/5  tracking-wider md:text-left text-center">
+				<div className="footer-column-2 md:w-1/5 md:text-left">
 					<span className="mb-5 text-2xl font-bold mb-10">Daftar Link</span>
 					<ul>
 						<li>Sekolah Sunnah</li>
@@ -35,7 +33,10 @@ const Footer = () => {
 					<p>+62 69696969</p>
 				</div>
 			</div>
-			<footer className="text-center text-white p-5" id="kontak">
+			<footer
+				className="overflow-hidden text-center text-white p-5"
+				id="kontak"
+			>
 				&copy; 2020 Pondok Programmer
 			</footer>
 		</>
