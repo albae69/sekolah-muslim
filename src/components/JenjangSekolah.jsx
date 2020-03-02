@@ -9,22 +9,30 @@ const JenjangSekolah = () => {
 
 	return (
 		<main
-			data-aos="fade-up"
-			className="font-Nunito h-full w-full overflow-hidden -my-10 mb-20"
+			className="font-Nunito jenjang-sekolah"
 			style={{maxWidth: "1300px", margin: "auto"}}
 		>
-			<span className="text-white text-2xl font-bold tracking-widest mb-16 flex justify-center">
+			<span
+				data-aos="fade-up"
+				data-aos-duration="2000"
+				className="jenjang-sekolah-title"
+			>
 				Jenjang Sekolah
 			</span>
-			<div className=" flex flex-wrap md:justify-around my-10 ml-12">
+			<div className="md:justify-around jenjang-sekolah-wrap">
 				{state.map(sekolah => (
-					<div key={sekolah.id} className="text-left  flex justify-around mb-5">
+					<div
+						data-aos="fade-up"
+						data-aos-duration="2000"
+						key={sekolah.id}
+						className="jenjang-sekolah-wrap_map"
+					>
 						<img
 							className="sm:h-full md:h-16 w-16 md:my-4"
 							src={circle}
 							alt=""
 						/>
-						<div className="mx-5 my-2 text-white font-semibold tracking-widest">
+						<div className="jenjang-sekolah-text">
 							<p className="md:text-xl ">{sekolah.title}</p>
 							<span className="sm:text-sm md:text-xl">{sekolah.desc}</span>
 							<br />

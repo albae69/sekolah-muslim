@@ -16,8 +16,8 @@ const Form = () => {
 		daerah: ""
 	}
 
-	const [sekolah, setSekolah] = useState(initSekolah)
-	const [daerah, setDaerah] = useState(initDaerah)
+	const [sekolah] = useState(initSekolah)
+	const [daerah] = useState(initDaerah)
 	const [input, setInput] = useState(initState)
 
 	const handleChange = e => {
@@ -27,8 +27,7 @@ const Form = () => {
 
 	const handleSubmit = e => {
 		e.preventDefault()
-		const {sekolah, daerah} = input
-		alert(`sekolah ${sekolah},daerah ${daerah}`)
+		setInput(initState)
 	}
 
 	return (
@@ -74,7 +73,7 @@ const Form = () => {
 				<div>
 					<button
 						type="submit"
-						className="sm:my-10 px-4 py-2 leading-none border rounded font-bold tracking-wide text-white border-white btn hover:text-teal-500 hover:bg-white"
+						className="sm:my-10 leading-none border rounded h-10 w-16 font-bold tracking-wide text-white  btn hover:text-teal-500 hover:bg-white"
 					>
 						Cari
 					</button>
