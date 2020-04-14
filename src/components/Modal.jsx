@@ -3,14 +3,13 @@ import ReactDOM from 'react-dom';
 import FormAdd from './FormAdd';
 
 const Modal = ({d, click}) => {
-	// controlled input
 	const [state, setState] = useState([]);
 
 	// controlled input by react-number-format
-	const [uang, setUang] = useState({
-		uangPendaftaran: '',
-		uangSppBulanan: '',
-	});
+	// const [uang, setUang] = useState({
+	// 	uangPendaftaran: '',
+	// 	uangSppBulanan: '',
+	// });
 
 	// preview image on upload
 	const [image, setImage] = useState({
@@ -28,11 +27,12 @@ const Modal = ({d, click}) => {
 
 	// handle form
 	const handleSubmit = data => {
-		let datas = Object.assign(data, uang, image);
+		let datas = Object.assign(data, image);
 		setState(datas);
-		alert('data sekolah telah ditambahkan');
-		window.location.reload();
+		// alert('data sekolah telah ditambahkan');
+		// window.location.reload();
 	};
+
 	console.log(state);
 
 	// modal
@@ -40,8 +40,8 @@ const Modal = ({d, click}) => {
 		<div className='modal bg-smoke font-Nunito' style={d} onClick={click}>
 			<FormAdd
 				onSubmit={handleSubmit}
-				uang={uang}
-				setUang={setUang}
+				// uang={uang}
+				// setUang={setUang}
 				image={image}
 				handleImage={handleImage}
 			/>
