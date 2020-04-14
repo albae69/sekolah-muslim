@@ -198,10 +198,15 @@ const FormAdd = ({uang, setUang, image, handleImage, onSubmit}) => {
 						{image.brosur === null ? (
 							''
 						) : (
-							<img src={image.brosur} alt='gambar sekolah' />
+							<img
+								src={image.brosur}
+								alt='gambar sekolah'
+								height='350px'
+								width='350px'
+							/>
 						)}
 						<input
-							className='input bg-grey-lighter border-grey-lighter'
+							className='inputFile appearance-none block py-3 px-4 w-full bg-grey-lighter'
 							type='file'
 							name='brosur'
 							onChange={handleImage}
@@ -214,10 +219,15 @@ const FormAdd = ({uang, setUang, image, handleImage, onSubmit}) => {
 						{image.sekolah === null ? (
 							''
 						) : (
-							<img src={image.sekolah} alt='gambar sekolah' />
+							<img
+								src={image.sekolah}
+								alt='gambar sekolah'
+								height='350px'
+								width='350px'
+							/>
 						)}
 						<input
-							className='input bg-grey-lighter border-grey-lighter'
+							className='inputFile appearance-none block py-3 px-4 w-full bg-grey-lighter'
 							type='file'
 							name='sekolah'
 							onChange={handleImage}
