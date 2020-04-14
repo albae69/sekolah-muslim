@@ -70,6 +70,10 @@
 	@apply .text-teal-500 .bg-white;
 }
 
+.header-tambah-sekolah:focus {
+	@apply .outline-none;
+}
+
 .hr {
 	@apply .mx-auto .w-11/12  .my-0 .opacity-50;
 }
@@ -132,15 +136,15 @@
 	@apply .z-50  .flex .justify-center .overflow-auto;
 }
 .form {
-	@apply .bg-blue-600 .shadow-md .rounded .px-8 .pt-6 .pb-8 .mb-4 .flex .flex-col .my-2 .mx-auto .w-4/5;
+	@apply .bg-white .shadow-md .rounded .px-8 .pt-6 .pb-8 .mb-4 .flex .flex-col .my-2 .mx-auto .w-4/5;
 }
 
 .label {
-	@apply .block .text-white .uppercase .text-sm .font-bold .mb-2 .tracking-widest;
+	@apply .block .text-black .uppercase .text-sm .font-bold .mb-2 .tracking-widest;
 }
 
 .input {
-	@apply .appearance-none .block .border  .rounded .py-3 .px-4 .w-full;
+	@apply .appearance-none .block .border   .py-3 .px-4 .w-full;
 }
 
 .textarea {
@@ -148,11 +152,11 @@
 }
 
 .textareaMD {
-	@apply .appearance-none .block .w-full  .rounded .py-3 .px-4 .resize-none;
+	@apply .appearance-none .block .w-full  .py-3 .px-4 .resize-none;
 }
 
 .submit-btn {
-	@apply .w-full .border .h-12 .text-3xl .text-white .tracking-widest .rounded;
+	@apply .w-full .bg-blue-600 .border .h-12 .text-3xl .text-white .tracking-widest;
 }
 
 .submit-btn:hover {

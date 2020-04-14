@@ -1,5 +1,8 @@
 {
 	"name": "Muslim Apps",
+	"short_name": "MuslimApps",
+	"start_url": ".",
+	"display": "standalone",
 	"icons": [
 		{
 			"src": "/android-icon-36x36.png",

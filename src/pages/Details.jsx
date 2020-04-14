@@ -1,29 +1,30 @@
-import React, {useContext} from "react"
-import _ from "lodash"
-import {GlobalState} from "../store"
-import {fb, ig, yt} from "../assets/icons"
-import quran from "../assets/img/quran.jpg"
-import {Footer, Navbar} from "../components/"
+import React, {useContext} from "react";
+import _ from "lodash";
+import {GlobalState} from "../store";
+import {fb, ig, yt} from "../assets/icons";
+import quran from "../assets/img/quran.jpg";
+import {Footer, Navbar} from "../components/";
+import {useParams, useLocation} from "react-router-dom";
 
 const Details = props => {
-	let {namaSekolah} = props.match.params
-	const {pathname} = props.location
+	let {namaSekolah} = useParams();
+	const {pathname} = useLocation();
 	const {
 		data: {sekolahPilihan, sekolahTerbaru}
-	} = useContext(GlobalState)
+	} = useContext(GlobalState);
 
 	const dataSekolahTerbaru = _.filter(
 		sekolahTerbaru,
 		data =>
 			data.namaSekolah.replace(/ /g, "-").toLowerCase() ===
 			namaSekolah.replace(/ /g, "-").toLowerCase()
-	)
+	);
 	const dataSekolahPilihan = _.filter(
 		sekolahPilihan,
 		data =>
 			data.namaSekolah.replace(/ /g, "-").toLowerCase() ===
 			namaSekolah.replace(/ /g, "-").toLowerCase()
-	)
+	);
 
 	const container = state => (
 		<div key={state.id}>
@@ -61,37 +62,21 @@ const Details = props => {
 						</p>
 					</div>
 				</div>
-				{/* <div className="mx-auto my-10 md:my-24">
-					<p className="text-center text-2xl">Galeri</p>
-					<div className="md:mx-12 md:mx-0 border rounded-lg bg-white h-64 w-64 ">
-						<div className="flex justify-between flex-wrap">
-							<div className="flex-grow bg-gray-400 h-16 m-3 rounded"></div>
-							<div className="flex-grow bg-gray-400 h-16 m-3 rounded"></div>
-							<div className="flex-grow bg-gray-400 h-16 m-3 rounded"></div>
-						</div>
-						<div className="flex-grow bg-gray-400 h-12 m-3 rounded"></div>
-						<div className="flex justify-between flex-wrap">
-							<div className="flex-grow bg-gray-400 h-16 m-3 rounded"></div>
-							<div className="flex-grow bg-gray-400 h-16 m-3 rounded"></div>
-							<div className="flex-grow bg-gray-400 h-16 m-3 rounded"></div>
-						</div>
-					</div>
-				</div> */}
 			</div>
 		</div>
-	)
+	);
 
 	const dataSekolah = pathname.includes("sekolah-terbaru")
 		? _.map(dataSekolahTerbaru, state => container(state))
-		: _.map(dataSekolahPilihan, state => container(state))
+		: _.map(dataSekolahPilihan, state => container(state));
 
 	return (
 		<div className="wrap">
 			<Navbar />
-			<main className="my-20">{dataSekolah}</main>
+			<main className="my-20 h-full">{dataSekolah}</main>
 			<Footer />
 		</div>
-	)
-}
+	);
+};
 
-export default Details
+export default Details;
