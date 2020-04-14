@@ -115,7 +115,7 @@
 }
 
 .gambar-sekolah {
-	@apply .border .rounded-lg .my-6 .h-64 .w-64 .border-white .border-8;
+	@apply .border .rounded-lg .my-6  .border-white .border-8;
 }
 
 /* Details */

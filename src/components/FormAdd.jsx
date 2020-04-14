@@ -1,9 +1,11 @@
 import React from 'react';
+
 import NumberFormat from 'react-number-format';
 import {useForm} from 'react-hook-form';
+import {RHFInput} from 'react-hook-form-input';
 
-const FormAdd = ({uang, setUang, image, handleImage, onSubmit}) => {
-	const {register, handleSubmit, errors} = useForm();
+const FormAdd = ({image, handleImage, onSubmit}) => {
+	const {register, unregister, setValue, handleSubmit, errors} = useForm();
 
 	return (
 		<form
@@ -21,25 +23,29 @@ const FormAdd = ({uang, setUang, image, handleImage, onSubmit}) => {
 						name='namaSekolah'
 						ref={register({required: 'masukan nama sekolah'})}
 					/>
-					<p className='text-red-500'>
+					<p className='text-red-600 italic'>
 						{errors.namaSekolah && errors.namaSekolah.message}
 					</p>
 				</div>
 				<div className='md:w-1/2 px-3 mb-6'>
 					<label className='md:text-xl label'>Jenjang</label>
 					<div className='relative'>
-						<input
+						<select
 							className='input bg-grey-lighter border-grey-lighter'
-							list='jenjang'
-							placeholder='pilih jenjang'
 							name='jenjang'
-							ref={register({required: true})}
-						/>
-						<datalist id='jenjang'>
-							<option value='SD'></option>
-							<option value='SMP'></option>
-							<option value='SMA'></option>
-						</datalist>
+							ref={register({
+								required: 'masukan jenjang sekolah',
+								minLength: 1,
+							})}
+						>
+							<option value=''></option>
+							<option value='SD'>SD</option>
+							<option value='SMP'>SMP</option>
+							<option value='SMA'>SMA</option>
+						</select>
+						<p className='text-red-600 italic'>
+							{errors.jenjang && errors.jenjang.message}
+						</p>
 					</div>
 				</div>
 				<div className='md:w-1/2 px-3'>
@@ -51,7 +57,7 @@ const FormAdd = ({uang, setUang, image, handleImage, onSubmit}) => {
 						name='namaYayasan'
 						ref={register({required: 'masukan nama yayasan'})}
 					/>
-					<p className='text-red-500'>
+					<p className='text-red-600 italic'>
 						{errors.namaYayasan && errors.namaYayasan.message}
 					</p>
 				</div>
@@ -59,35 +65,41 @@ const FormAdd = ({uang, setUang, image, handleImage, onSubmit}) => {
 			<div className='-mx-3 md:flex mb-6'>
 				<div className='md:w-1/2 px-3 mb-6 md:mb-0'>
 					<label className='md:text-xl label'>Uang Pendaftaran</label>
-					<NumberFormat
+					<RHFInput
 						className='input bg-grey-lighter border-grey-lighter'
-						placeholder='uang pendaftaran'
+						register={register({
+							required: 'masukan jumlah uang pendaftaran',
+							minLength: {value: 1, message: 'tidak boleh kosong.'},
+						})}
+						unregister={unregister}
 						name='uangPendaftaran'
-						value={uang.uangPendaftaran}
-						thousandSeparator={true}
-						prefix={'Rp.'}
-						autoComplete='off'
-						onValueChange={values => {
-							const {formattedValue} = values;
-							setUang({uangPendaftaran: formattedValue});
-						}}
+						prefix='Rp.'
+						setValue={setValue}
+						thousandSeparator
+						as={<NumberFormat />}
 					/>
+					<p className='text-red-600 italic'>
+						{errors.uangPendaftaran && errors.uangPendaftaran.message}
+					</p>
 				</div>
 				<div className='md:w-1/2 px-3'>
 					<label className='md:text-xl label'>Uang SPP Bulanan</label>
-					<NumberFormat
+					<RHFInput
 						className='input bg-grey-lighter border-grey-lighter'
-						placeholder='spp bulanan'
+						register={register({
+							required: 'masukan jumlah uang spp bulanan',
+							minLength: {value: 1, message: 'tidak boleh kosong.'},
+						})}
+						unregister={unregister}
 						name='uangSppBulanan'
-						value={uang.uangSppBulanan}
-						thousandSeparator={true}
-						prefix={'Rp.'}
-						autoComplete='off'
-						onValueChange={values => {
-							const {formattedValue} = values;
-							setUang({...uang, uangSppBulanan: formattedValue});
-						}}
+						prefix='Rp.'
+						setValue={setValue}
+						thousandSeparator
+						as={<NumberFormat />}
 					/>
+					<p className='text-red-600 italic'>
+						{errors.uangSppBulanan && errors.uangSppBulanan.message}
+					</p>
 				</div>
 			</div>
 			<div className='mb-5'>
@@ -98,7 +110,7 @@ const FormAdd = ({uang, setUang, image, handleImage, onSubmit}) => {
 					name='deskripsi'
 					ref={register({required: 'masukan deskripsi sekolah'})}
 				></textarea>
-				<p className='text-red-500'>
+				<p className='text-red-600 italic'>
 					{errors.deskripsi && errors.deskripsi.message}
 				</p>
 			</div>
@@ -112,24 +124,29 @@ const FormAdd = ({uang, setUang, image, handleImage, onSubmit}) => {
 						name='alamat'
 						ref={register({required: 'masukan alamat sekolah'})}
 					></textarea>
-					<p className='text-red-500'>
+					<p className='text-red-600 italic'>
 						{errors.alamat && errors.alamat.message}
 					</p>
 				</div>
 				<div className='md:w-1/2 px-3 mb-4'>
 					<label className='md:text-xl label'>Kota / Kabupaten</label>
 					<div className='relative'>
-						<input
+						<select
 							className='input bg-grey-lighter border-grey-lighter'
-							list='kota'
-							placeholder='pilih kota/kabupaten'
 							name='kota'
-							ref={register({required: true})}
-						/>
-						<datalist id='kota'>
-							<option value='medan'></option>
-							<option value='jogja'></option>
-						</datalist>
+							ref={register({
+								required: 'masukan kota / kabupaten',
+								minLength: 1,
+							})}
+						>
+							<option value=''></option>
+							<option value='medan'>MEDAN</option>
+							<option value='jogja'>JOGJA</option>
+							<option value='bantul'>BANTUL</option>
+						</select>
+						<p className='text-red-600 italic'>
+							{errors.kota && errors.kota.message}
+						</p>
 					</div>
 				</div>
 				<div className='md:w-1/2 px-3 mb-4'>
@@ -141,7 +158,9 @@ const FormAdd = ({uang, setUang, image, handleImage, onSubmit}) => {
 						name='gmaps'
 						ref={register({required: 'masukan alamat url / link google map'})}
 					/>
-					<p className='text-red-500'>{errors.gmaps && errors.gmaps.message}</p>
+					<p className='text-red-600 italic'>
+						{errors.gmaps && errors.gmaps.message}
+					</p>
 				</div>
 			</div>
 			<div className='-mx-3 md:flex mb-4'>
@@ -150,12 +169,18 @@ const FormAdd = ({uang, setUang, image, handleImage, onSubmit}) => {
 					<div className='relative'>
 						<input
 							className='input bg-grey-lighter border-grey-lighter'
-							placeholder='nomor telepon sekolah'
+							placeholder='nomor telepon'
 							type='number'
 							name='phone'
-							ref={register({required: 'masukan nomor telepon sekolah'})}
+							ref={register({
+								required: 'masukan nomor telepon sekolah',
+								minLength: {
+									value: 11,
+									message: 'nomor telepon minimal 11 angka',
+								},
+							})}
 						/>
-						<p className='text-red-500'>
+						<p className='text-red-600 italic'>
 							{errors.phone && errors.phone.message}
 						</p>
 					</div>
@@ -170,7 +195,7 @@ const FormAdd = ({uang, setUang, image, handleImage, onSubmit}) => {
 							name='email'
 							ref={register({required: 'masukan email sekolah'})}
 						/>
-						<p className='text-red-500'>
+						<p className='text-red-600 italic'>
 							{errors.email && errors.email.message}
 						</p>
 					</div>
@@ -185,7 +210,7 @@ const FormAdd = ({uang, setUang, image, handleImage, onSubmit}) => {
 							name='website'
 							ref={register({required: 'masukan website sekolah'})}
 						/>
-						<p className='text-red-500'>
+						<p className='text-red-600 italic'>
 							{errors.website && errors.website.message}
 						</p>
 					</div>
