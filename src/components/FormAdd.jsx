@@ -3,7 +3,7 @@ import NumberFormat from 'react-number-format';
 import {useForm} from 'react-hook-form';
 
 const FormAdd = ({uang, setUang, image, handleImage, onSubmit}) => {
-	const {register, handleSubmit} = useForm();
+	const {register, handleSubmit, errors} = useForm();
 
 	return (
 		<form
@@ -19,8 +19,11 @@ const FormAdd = ({uang, setUang, image, handleImage, onSubmit}) => {
 						type='text'
 						placeholder='nama sekolah'
 						name='namaSekolah'
-						ref={register({required: true})}
+						ref={register({required: 'masukan nama sekolah'})}
 					/>
+					<p className='text-red-500'>
+						{errors.namaSekolah && errors.namaSekolah.message}
+					</p>
 				</div>
 				<div className='md:w-1/2 px-3 mb-6'>
 					<label className='md:text-xl label'>Jenjang</label>
@@ -33,8 +36,9 @@ const FormAdd = ({uang, setUang, image, handleImage, onSubmit}) => {
 							ref={register({required: true})}
 						/>
 						<datalist id='jenjang'>
-							<option value='sd'></option>
-							<option value='smp'></option>
+							<option value='SD'></option>
+							<option value='SMP'></option>
+							<option value='SMA'></option>
 						</datalist>
 					</div>
 				</div>
@@ -45,8 +49,11 @@ const FormAdd = ({uang, setUang, image, handleImage, onSubmit}) => {
 						type='text'
 						placeholder='nama yayasan'
 						name='namaYayasan'
-						ref={register({required: true})}
+						ref={register({required: 'masukan nama yayasan'})}
 					/>
+					<p className='text-red-500'>
+						{errors.namaYayasan && errors.namaYayasan.message}
+					</p>
 				</div>
 			</div>
 			<div className='-mx-3 md:flex mb-6'>
@@ -89,8 +96,11 @@ const FormAdd = ({uang, setUang, image, handleImage, onSubmit}) => {
 					className='textarea'
 					placeholder='deskripsi sekolah..'
 					name='deskripsi'
-					ref={register({required: true})}
+					ref={register({required: 'masukan deskripsi sekolah'})}
 				></textarea>
+				<p className='text-red-500'>
+					{errors.deskripsi && errors.deskripsi.message}
+				</p>
 			</div>
 			<div className='-mx-3 md:flex mb-4'>
 				<div className='md:w-full px-3 mb-6 md:mb-0'>
@@ -100,8 +110,11 @@ const FormAdd = ({uang, setUang, image, handleImage, onSubmit}) => {
 						type='text'
 						placeholder='alamat sekolah..'
 						name='alamat'
-						ref={register({required: true})}
+						ref={register({required: 'masukan alamat sekolah'})}
 					></textarea>
+					<p className='text-red-500'>
+						{errors.alamat && errors.alamat.message}
+					</p>
 				</div>
 				<div className='md:w-1/2 px-3 mb-4'>
 					<label className='md:text-xl label'>Kota / Kabupaten</label>
@@ -126,8 +139,9 @@ const FormAdd = ({uang, setUang, image, handleImage, onSubmit}) => {
 						type='text'
 						placeholder='link google maps.'
 						name='gmaps'
-						ref={register({required: true})}
+						ref={register({required: 'masukan alamat url / link google map'})}
 					/>
+					<p className='text-red-500'>{errors.gmaps && errors.gmaps.message}</p>
 				</div>
 			</div>
 			<div className='-mx-3 md:flex mb-4'>
@@ -139,8 +153,11 @@ const FormAdd = ({uang, setUang, image, handleImage, onSubmit}) => {
 							placeholder='nomor telepon sekolah'
 							type='number'
 							name='phone'
-							ref={register({required: true})}
+							ref={register({required: 'masukan nomor telepon sekolah'})}
 						/>
+						<p className='text-red-500'>
+							{errors.phone && errors.phone.message}
+						</p>
 					</div>
 				</div>
 				<div className='md:w-1/2 px-3 mb-4'>
@@ -151,8 +168,11 @@ const FormAdd = ({uang, setUang, image, handleImage, onSubmit}) => {
 							placeholder='email sekolah'
 							type='email'
 							name='email'
-							ref={register({required: true})}
+							ref={register({required: 'masukan email sekolah'})}
 						/>
+						<p className='text-red-500'>
+							{errors.email && errors.email.message}
+						</p>
 					</div>
 				</div>
 				<div className='md:w-1/2 px-3 mb-4'>
@@ -163,8 +183,11 @@ const FormAdd = ({uang, setUang, image, handleImage, onSubmit}) => {
 							placeholder='alamat website sekolah'
 							type='text'
 							name='website'
-							ref={register({required: true})}
+							ref={register({required: 'masukan website sekolah'})}
 						/>
+						<p className='text-red-500'>
+							{errors.website && errors.website.message}
+						</p>
 					</div>
 				</div>
 			</div>
@@ -175,10 +198,15 @@ const FormAdd = ({uang, setUang, image, handleImage, onSubmit}) => {
 						{image.brosur === null ? (
 							''
 						) : (
-							<img src={image.brosur} alt='gambar sekolah' />
+							<img
+								src={image.brosur}
+								alt='gambar sekolah'
+								height='350px'
+								width='350px'
+							/>
 						)}
 						<input
-							className='input bg-grey-lighter border-grey-lighter'
+							className='inputFile appearance-none block py-3 px-4 w-full bg-grey-lighter'
 							type='file'
 							name='brosur'
 							onChange={handleImage}
@@ -191,10 +219,15 @@ const FormAdd = ({uang, setUang, image, handleImage, onSubmit}) => {
 						{image.sekolah === null ? (
 							''
 						) : (
-							<img src={image.sekolah} alt='gambar sekolah' />
+							<img
+								src={image.sekolah}
+								alt='gambar sekolah'
+								height='350px'
+								width='350px'
+							/>
 						)}
 						<input
-							className='input bg-grey-lighter border-grey-lighter'
+							className='inputFile appearance-none block py-3 px-4 w-full bg-grey-lighter'
 							type='file'
 							name='sekolah'
 							onChange={handleImage}

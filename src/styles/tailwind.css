@@ -147,6 +147,14 @@
 	@apply .appearance-none .block .border   .py-3 .px-4 .w-full;
 }
 
+.inputFile:focus {
+	@apply .outline-none;
+}
+
+.inputFile:active {
+	@apply .outline-none;
+}
+
 .textarea {
 	@apply .h-32 .p-2 .w-full .resize-none .border .rounded;
 }

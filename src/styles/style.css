@@ -901,6 +901,14 @@ video {
   width: 100%;
 }
 
+.inputFile:focus {
+  outline: 0;
+}
+
+.inputFile:active {
+  outline: 0;
+}
+
 .textarea {
   height: 8rem;
   padding: 0.5rem;
