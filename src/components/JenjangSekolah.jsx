@@ -33,8 +33,7 @@ const JenjangSekolah = () => {
 							alt=''
 						/>
 						<div className='jenjang-sekolah-text'>
-							<p className='md:text-xl '>{sekolah.title}</p>
-							<span className='sm:text-sm md:text-xl'>{sekolah.desc}</span>
+							<span className='sm:text-sm md:text-xl'>{sekolah.nama}</span>
 							<br />
 							<span>{sekolah.jumlah}</span>
 						</div>

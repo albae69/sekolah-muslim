@@ -1,38 +1,16 @@
 import React, {useState} from 'react';
+import {useForm} from 'react-hook-form';
 
 const FormSearch = () => {
-	const initDaerah = [
-		'Nanggroe Aceh Darussalam',
-		'Sumatera Utara',
-		'Sumatera Barat',
-		'Sumatera Selatan',
-		'Kepualan Riau',
-	];
+	const {register, handleSubmit, errors} = useForm();
 
-	const initSekolah = ['SMKN 1 Percut Sei Tuan', 'SMKN 1 Medan'];
-
-	const initState = {
-		sekolah: '',
-		daerah: '',
-	};
-
-	const [sekolah] = useState(initSekolah);
-	const [daerah] = useState(initDaerah);
-	const [input, setInput] = useState(initState);
-
-	const handleChange = e => {
-		const {name, value} = e.target;
-		setInput({...input, [name]: value});
-	};
-
-	const handleSubmit = e => {
-		e.preventDefault();
-		setInput(initState);
+	const onSubmit = data => {
+		console.log(data);
 	};
 
 	return (
 		<form
-			onSubmit={handleSubmit}
+			onSubmit={handleSubmit(onSubmit)}
 			className=' px-8 pt-6 pb-8 mb-10 flex flex-col my-2 font-Nunito'
 			style={{maxWidth: '1300px', margin: 'auto'}}
 		>
@@ -43,32 +21,33 @@ const FormSearch = () => {
 					</label>
 					<input
 						type='text'
-						placeholder='ketik nama sekolah..'
+						placeholder='ketik nama sekolah'
 						className='focus:placeholder-transparent appearance-none block w-full bg-grey-lighter text-grey-darker  py-2 px-4 focus:outline-none  mb-3'
-						value={input.sekolah}
-						onChange={handleChange}
 						name='sekolah'
-						autoComplete='off'
+						ref={register({required: 'masukan nama sekolah!'})}
 					/>
+					<p className='text-red-400 absolute font-bold'>
+						{errors.sekolah && errors.sekolah.message}
+					</p>
 				</div>
 				<div className='md:w-1/2 px-3 mb-6 md:mb-0'>
 					<label className='lg:float-left block  tracking-wider text-white text-xl font-bold mb-2'>
-						Daerah Asal
+						Kota Asal
 					</label>
-					<input
-						placeholder='ketik nama daerah..'
-						className='appearance-none block text-gray-500 w-full bg-white  border py-2 px-4 btn  mb-3'
-						list='daerah'
-						name='daerah'
-						value={input.daerah}
-						onChange={handleChange}
-						autoComplete='off'
-					/>
-					<datalist id='daerah' className='bg-white w-full absolute'>
-						{daerah.map(daerah => (
-							<option key={daerah} value={daerah} />
-						))}
-					</datalist>
+					<select
+						className='focus:placeholder-transparent appearance-none block w-full bg-grey-lighter text-grey-darker  py-2 px-4 focus:outline-none  mb-3'
+						name='asalKota'
+						ref={register({
+							required: 'masukan kota asal sekolah',
+							minLength: 1,
+						})}
+					>
+						<option value='MEDAN'>MEDAN</option>
+						<option value='JOGJA'>JOGJA</option>
+					</select>
+					<p className='text-red-600 italic'>
+						{errors.asalKota && errors.asalKota.message}
+					</p>
 				</div>
 				<div>
 					<button

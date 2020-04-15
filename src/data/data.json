@@ -221,20 +221,17 @@
 	"jenjangSekolah": [
 		{
 			"id": 1,
-			"namaSekolah": "SD IT",
-			"desc": "Sekolah Terpadu Islam",
+			"nama": "SD / SDIT",
 			"jumlah": "69"
 		},
 		{
 			"id": 2,
-			"namaSekolah": "MTs",
-			"desc": "Madrasah Tsanawiyah",
+			"nama": "SMP / MTs",
 			"jumlah": "69"
 		},
 		{
 			"id": 3,
-			"namaSekolah": "MA",
-			"desc": "Madrasah Aliyah",
+			"nama": "SMA / MA",
 			"jumlah": "69"
 		}
 	]
