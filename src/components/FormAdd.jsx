@@ -217,7 +217,7 @@ const FormAdd = ({image, handleImage, onSubmit}) => {
 				</div>
 			</div>
 			<div className='-mx-3 md:flex mb-4 text-white'>
-				<div className='md:w-1/2 px-3 mb-4'>
+				{/* <div className='md:w-1/2 px-3 mb-4'>
 					<label className='md:text-xl label'>Brosur Sekolah</label>
 					<div className='relative'>
 						{image.brosur === null ? (
@@ -258,7 +258,7 @@ const FormAdd = ({image, handleImage, onSubmit}) => {
 							onChange={handleImage}
 						/>
 					</div>
-				</div>
+				</div> */}
 			</div>
 			<button type='submit' className='submit-btn font-Nunito'>
 				Kirim

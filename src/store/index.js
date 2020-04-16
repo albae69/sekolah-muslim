@@ -1,5 +1,4 @@
 import React, {createContext, useReducer} from 'react';
-import data from 'data/data.json';
 
 // inisialisasi global state
 export const GlobalState = createContext();
@@ -9,11 +8,23 @@ export const GlobalDispatch = createContext();
 
 // state
 
-const initState = {data};
+const initState = {
+	sekolahTerbaru: [],
+	sekolahPilihan: [],
+	jenjangSekolah: [
+		{id: 1, nama: 'SD / SDIT', jumlah: 69},
+		{id: 2, nama: 'SMP / MTs', jumlah: 69},
+		{id: 3, nama: 'SMA / MA', jumlah: 69},
+	],
+};
 
 // create reducer
 const reducer = (state, action) => {
 	switch (action.type) {
+		case 'sekolah':
+			return {...state, sekolahTerbaru: action.payload};
+		case 'sekolahPilihan':
+			return {...state, sekolahPilihan: action.payload};
 		default:
 			return state;
 	}
