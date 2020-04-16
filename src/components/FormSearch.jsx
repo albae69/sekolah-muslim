@@ -5,7 +5,7 @@ const FormSearch = () => {
 	const {register, handleSubmit, errors} = useForm();
 
 	const onSubmit = data => {
-		console.log(data);
+		alert(`nama sekolah : ${data.sekolah} , asal sekolah : ${data.asal}`);
 	};
 
 	return (
@@ -36,7 +36,7 @@ const FormSearch = () => {
 					</label>
 					<select
 						className='focus:placeholder-transparent appearance-none block w-full bg-grey-lighter text-grey-darker  py-2 px-4 focus:outline-none  mb-3'
-						name='asalKota'
+						name='asal'
 						ref={register({
 							required: 'masukan kota asal sekolah',
 							minLength: 1,

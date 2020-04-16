@@ -18,24 +18,26 @@ const DataSekolah = ({state, baseRoute, name}) => {
 				className='flex justify-between flex-wrap mx-5 lg:justify-center'
 				style={{maxWidth: '1300px', margin: 'auto'}}
 			>
-				{_.map(state, state => (
-					<Link
-						to={`/${baseRoute}/${state.namaSekolah
-							.replace(/ /g, '-')
-							.toLowerCase()}`}
-						key={state.id}
-						data-aos='fade-up'
-						data-aos-duration='2000'
-						className='mb-20 mx-auto'
-					>
-						<Card
-							gambar={state.gambar || quran}
-							namaSekolah={state.namaSekolah}
-							namaYayasan={state.namaYayasan}
-							kota={state.kota}
-						/>
-					</Link>
-				))}
+				{state.length === 0 ? (
+					<p className='text-white text-sm'>loading..</p>
+				) : (
+					_.map(state, state => (
+						<Link
+							to={`/${baseRoute}/${state.nama.replace(/ /g, '-').toLowerCase()}`}
+							key={state._id}
+							data-aos='fade-up'
+							data-aos-duration='2000'
+							className='mb-20 mx-auto'
+						>
+							<Card
+								gambar={state.gambar || quran}
+								nama={state.nama}
+								yayasan={state.yayasan}
+								asal={state.asal}
+							/>
+						</Link>
+					))
+				)}
 			</div>
 		</div>
 	);

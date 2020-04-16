@@ -3,7 +3,7 @@ import {Navbar} from 'components';
 import _ from 'lodash';
 
 const Search = () => {
-	const [school, setSchool] = useState([
+	const [school] = useState([
 		{
 			id: 1,
 			namaSekolah: 'SMK NEGERI 1 PERCUT SEI TUAN',

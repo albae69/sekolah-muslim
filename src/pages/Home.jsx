@@ -3,9 +3,7 @@ import {Header, Footer, DataSekolah} from 'components/';
 import {GlobalState} from 'store';
 
 const Home = () => {
-	const {
-		data: {sekolahTerbaru, sekolahPilihan},
-	} = useContext(GlobalState);
+	const {sekolahTerbaru, sekolahPilihan} = useContext(GlobalState);
 
 	return (
 		<div className='wrap'>
