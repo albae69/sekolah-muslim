@@ -5,12 +5,6 @@ import FormAdd from './FormAdd';
 const Modal = ({d, click}) => {
 	const [state, setState] = useState([]);
 
-	// controlled input by react-number-format
-	// const [uang, setUang] = useState({
-	// 	uangPendaftaran: '',
-	// 	uangSppBulanan: '',
-	// });
-
 	// preview image on upload
 	const [image, setImage] = useState({
 		brosur: null,
@@ -40,8 +34,6 @@ const Modal = ({d, click}) => {
 		<div className='modal bg-smoke font-Nunito' style={d} onClick={click}>
 			<FormAdd
 				onSubmit={handleSubmit}
-				// uang={uang}
-				// setUang={setUang}
 				image={image}
 				handleImage={handleImage}
 			/>

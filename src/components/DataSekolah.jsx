@@ -23,9 +23,7 @@ const DataSekolah = ({state, baseRoute, name}) => {
 				) : (
 					_.map(state, state => (
 						<Link
-							to={`/${baseRoute}/${state.nama
-								.replace(/ /g, '-')
-								.toLowerCase()}`}
+							to={`/${baseRoute}/${state.nama.replace(/ /g, '-').toLowerCase()}`}
 							key={state._id}
 							data-aos='fade-up'
 							data-aos-duration='2000'
